@@ -71,7 +71,7 @@ public class Library {
 
 	        // Read file content into String
 	        String fileContent = new String(Files.readAllBytes(
-	                Paths.get("C:\\Users\\Ashish\\Desktop\\new.json")));
+	                Paths.get("C:\\Users\\FT-AS-1320\\Downloads\\new.json")));
 
 	        String response = given()
 	                .log().all()
