@@ -21,7 +21,8 @@ public class Basics {
 		
 		RestAssured.baseURI="https://api.restful-api.dev";
 		String response = given().log().all().header("Content-Type","application/json")
-		.body(payload.AddData()).when().post("objects").then().assertThat().statusCode(200)
+		.body(payload.AddData())
+		.when().post("objects").then().assertThat().statusCode(200)
 	   .body("name", equalTo("Apple MacBook Pro 16")).header("Server", "cloudflare").extract().response().asString();
 		
 		//add place -- update place with  new data -- get data to validate if new data updated or not.
@@ -42,7 +43,7 @@ public class Basics {
 				.then().log().all().assertThat().body("name", equalTo("Ashish MacBook Pro 20"));
 		         
 		         System.out.println("Update done");
-		         
+		          
 		         
 		        String NewResponse = given().log().all().header("Content-Type","application/json")
 					.body(payload.UpdateData()).when().get("objects/"+id)
